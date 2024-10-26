@@ -312,3 +312,57 @@ button:hover {
     background-size: cover;
     background-position: center;
 }
+
+
+
+
+
+
+/* Background Gradient */
+body {
+    background: linear-gradient(135deg, #1b1b2f 0%, #4e4e72 100%);
+    color: #f0f0f0;
+}
+
+/* Header Styles */
+.hero-title {
+    font-family: 'UnifrakturMaguntia', cursive;
+    color: #FFD700;
+    text-shadow: 2px 2px 6px #000;
+    font-size: 4rem;
+}
+
+/* Accent Hover and Glow Effect */
+.cta-button, .tea-category h3 {
+    color: #f0f0f0;
+    transition: color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-button:hover, .tea-category h3:hover {
+    color: #FFD700;
+    box-shadow: 0px 0px 15px rgba(255, 215, 0, 0.7);
+}
+
+/* Potion Bullet Points */
+.tea-category ul li::before {
+    content: "🧪";
+    color: #FFD700;
+    font-size: 1.2rem;
+    margin-right: 8px;
+}
+
+/* Animation for Bubbling Cauldron */
+@keyframes bubble {
+    0% { transform: translateY(0); opacity: 0.9; }
+    100% { transform: translateY(-20px); opacity: 0; }
+}
+
+.bubble {
+    width: 10px;
+    height: 10px;
+    background-color: #FFD700;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    animation: bubble 1.5s infinite;
+}
