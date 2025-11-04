@@ -1,333 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tasty Cauldron</title>
-    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tasty Cauldron | Under Construction</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Spectral+SC:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Spectral SC', serif;
+      background: radial-gradient(circle at bottom, #1a0f1f, #0a0610);
+      color: #f3e9dc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
 
-    <!-- Add Smooth Scroll Behavior -->
-    <style>
-        html {
-            scroll-behavior: smooth; /* Enables smooth scrolling */
-        }
-    </style>
+    /* ✨ Starfield background */
+    .stars {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: #fff;
+      opacity: 0.8;
+      border-radius: 50%;
+      animation: twinkle 3s infinite ease-in-out;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.3; transform: scale(0.8); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+
+    /* ✨ Main container */
+    .container {
+      text-align: center;
+      padding: 2rem;
+      border: 2px solid #a291a5;
+      border-radius: 20px;
+      background: rgba(20, 12, 25, 0.85);
+      box-shadow: 0 0 25px rgba(180, 150, 255, 0.25);
+      max-width: 600px;
+      z-index: 2;
+      position: relative;
+    }
+
+    h1 {
+      font-family: 'Cinzel Decorative', cursive;
+      font-size: 2.5rem;
+      color: #b9a3e3;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #d6c7f1;
+      margin-bottom: 0.5rem;
+    }
+
+    .year {
+      font-size: 1.4rem;
+      color: #c3b0e0;
+      font-weight: bold;
+      letter-spacing: 1px;
+      margin-top: 0.5rem;
+      text-shadow: 0 0 10px rgba(200, 180, 255, 0.4);
+    }
+
+    .moon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      animation: pulse 2s infinite alternate;
+    }
+
+    @keyframes pulse {
+      from { opacity: 0.7; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1.05); }
+    }
+
+    .footer {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #8c7fa8;
+    }
+  </style>
 </head>
 <body>
-    <!-- Hero Section with Background Image and Readable Text -->
-    <header class="hero-section" style="background-image: url('THE ELIXIR.jpg'); background-size: cover; background-position: center; padding: 100px 20px; text-align: center; color: #F5F5F5;">
-        <div class="hero-content">
-            <h1 class="hero-title" style="font-family: 'UnifrakturMaguntia', cursive; color: #FFD700; font-size: 4rem; border: 3px solid #FFD700; padding: 10px; display: inline-block; background-color: rgba(0, 0, 0, 0.5);">
-                Tasty Cauldron
-            </h1>
-            <p class="hero-tagline" style="font-size: 1.5rem; margin-top: 10px; margin-bottom: 20px; border: 3px solid #FFD700; padding: 10px; display: inline-block; background-color: rgba(0, 0, 0, 0.5);">
-                Brewed with Magic, Tasted with Wonder
-            </p>
-            <!-- Link to scroll to #tea-menu -->
-            <a href="#tea-menu" class="cta-button">Discover Our Teas</a>
-        </div>
-    </header>
+  <!-- ✨ Star background -->
+  <div class="stars" id="stars"></div>
 
-    <!-- Bubbling Cauldron -->
-    <div class="bubbling-cauldron-container">
-        <div class="bubbling-cauldron">
-            <div class="bubble-container">
-                <div class="bubble"></div>
-                <div class="bubble"></div>
-                <div class="bubble"></div>
-            </div>
-        </div>
-    </div>
+  <div class="container">
+    <div class="moon">🌙</div>
+    <h1>Tasty Cauldron is Brewing Something New</h1>
+    <p>Our cauldron bubbles with fresh magic...<br> We’ll be back soon with a brand new look!</p>
+    <div class="year">Returning in 2026</div>
+    <div class="footer">✨ Thank you for your patience ✨</div>
+  </div>
 
-    <!-- About Us Section -->
-    <section id="about" class="about-section">
-        <h2>About Us</h2>
-        <p>Welcome to Tasty Cauldron, where every cup is brewed with enchantment. Our handcrafted teas are made with the finest natural ingredients and a pinch of magic.</p>
-    </section>
+  <script>
+    // 🌟 Generate random twinkling stars
+    const starContainer = document.getElementById('stars');
+    const numStars = 80; // adjust number of stars
 
-    <!-- Description for the Tea Section -->
-<section id="tea-menu" class="tea-menu-section">
-    <h2 style="text-align: center; color: #FFD700;">Discover Our Magical Teas</h2>
-    <p style="text-align: center; font-size: 1.2rem; padding: 20px; color: #F5F5F5;">
-        Discover our carefully curated selection of teas, each blend created to deliver a magical experience with every sip. Each order comes with 11 tea bags.
-    </p>
-
-    <!-- Floral Teas -->
-    <div class="tea-category">
-        <h3>Floral</h3>
-        <ul style="list-style: none; padding-left: 0;">
-            <li style="margin-bottom: 10px;">
-                <i class="fas fa-flask" style="color: #FFD700; margin-right: 10px;"></i>
-                <h4>Berry rose</h4>
-                <p>Strawberry leaf, rose petals, raspberry leaf.</p>
-                <span>$11.00</span>
-            </li>
-            <li style="margin-bottom: 10px;">
-                <i class="fas fa-flask" style="color: #FFD700; margin-right: 10px;"></i>
-                <h4>Flower power</h4>
-                <p>Hibiscus, rose petals, lavender, nettle leaf.</p>
-                <span>$11.00</span>
-            </li>
-        </ul>
-    </div>
-
-    <!-- Keep Calm and Sip On Teas -->
-    <div class="tea-category">
-        <h3>Keep calm and sip on</h3>
-        <ul style="list-style: none; padding-left: 0;">
-            <li style="margin-bottom: 10px;">
-                <i class="fas fa-flask" style="color: #FFD700; margin-right: 10px;"></i>
-                <h4>Relax</h4>
-                <p>Lavender flower, Ashwagandha root, Nettle leaf, Gotu kola.</p>
-                <span>$11.00</span>
-            </li>
-            <li style="margin-bottom: 10px;">
-                <i class="fas fa-flask" style="color: #FFD700; margin-right: 10px;"></i>
-                <h4>Meditation</h4>
-                <p>Passionflower, damiana leaf, lavender, raspberry leaf.</p>
-                <span>$11.00</span>
-            </li>
-            <li style="margin-bottom: 10px;">
-                <i class="fas fa-flask" style="color: #FFD700; margin-right: 10px;"></i>
-                <h4>Serenity</h4>
-                <p>Ashwagandha root, St. Johns wort, Marshmallow leaf, passionflower</p>
-                <span>$11.00</span>
-            </li>
-            <li style="margin-bottom: 10px;">
-                <i class="fas fa-flask" style="color: #FFD700; margin-right: 10px;"></i>
-                <h4>Breathe</h4>
-                <p>Dandelion leaf, burdock root, gotu kola, marshmallow leaf.</p>
-                <span>$11.00</span>
-            </li>
-        </ul>
-    </div>
-
-    <!-- Witches Brew Teas -->
-    <div class="tea-category">
-        <h3>Witches brew</h3>
-        <ul style="list-style: none; padding-left: 0;">
-            <li style="margin-bottom: 10px;">
-                <i class="fas fa-flask" style="color: #FFD700; margin-right: 10px;"></i>
-                <h4>The Elixir</h4>
-                <p>Burdock root, turmeric root, cornflowers, ginger root, raspberry leaf.</p>
-                <span>$11.00</span>
-            </li>
-            <li style="margin-bottom: 10px;">
-                <i class="fas fa-flask" style="color: #FFD700; margin-right: 10px;"></i>
-                <h4>The Ritual</h4>
-                <p>Mugwort, dandelion leaf, peppermint leaf, St. John's wort.</p>
-                <span>$11.00</span>
-            </li>
-        </ul>
-    </div>
-
-    <!-- Custom Tea Category -->
-    <div class="tea-category">
-        <h3>Custom Tea</h3>
-        <ul style="list-style: none; padding-left: 0;">
-            <li style="margin-bottom: 10px;">
-                <i class="fas fa-flask" style="color: #FFD700; margin-right: 10px;"></i>
-                <h4>Choose your own magic</h4>
-                <p>Choose up to 4 herbs on our list of items to conjure up your own blend</p>
-                <span>$11.00</span>
-            </li>
-        </ul>
-    </div>
-</section>
-
-
-    <!-- Bubbling Cauldron Again -->
-    <div class="bubbling-cauldron-container">
-        <div class="bubbling-cauldron">
-            <div class="bubble-container">
-                <div class="bubble"></div>
-                <div class="bubble"></div>
-                <div class="bubble"></div>
-            </div>
-        </div>
-    </div>
-
+    for (let i = 0; i < numStars; i++) {
+      const star = document.createElement('div');
+      star.classList.add('star');
+      star.style.top = Math.random() * 100 + '%';
+      star.style.left = Math.random() * 100 + '%';
+      star.style.animationDuration = (2 + Math.random() * 3) + 's';
+      star.style.animationDelay = (Math.random() * 5) + 's';
+      starContainer.appendChild(star);
+    }
+  </script>
 </body>
 </html>
-
-
-
-<!-- About the Herbs Section -->
-<section id="about-herbs" class="about-herbs-section" style="padding: 50px 20px; background-color: #2F4F4F; text-align: center; color: #F5F5F5;">
-    <h2 style="font-family: 'UnifrakturMaguntia', cursive; color: #FFD700; padding: 10px; display: inline-block; background-color: rgba(0, 0, 0, 0.5);">About the Herbs</h2>
-    <p>Learn more about the magical herbs used in our teas. Click below to view a PDF with detailed descriptions of each herb.</p>
-    <a href="Tasty description list (1)_240716_052826.pdf" target="_blank" style="font-size: 1.5rem; color: #FFD700; border: 3px solid #FFD700; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block;">View Herb Descriptions</a>
-</section>
-
-
-
-    <div class="bubbling-cauldron-container">
-    <div class="bubbling-cauldron">
-        <div class="bubble-container">
-            <div class="bubble"></div>
-            <div class="bubble"></div>
-            <div class="bubble"></div>
-        </div>
-    </div>
-</div>
-
-    <!-- Candied Nuts Section -->
-<section id="candied-nuts" class="candied-nuts-section" style="padding: 50px 20px; background-color: #2F4F4F; text-align: center; color: #F5F5F5;">
-    <h2 style="font-family: 'UnifrakturMaguntia', cursive; color: #FFD700; padding: 10px; display: inline-block; background-color: rgba(0, 0, 0, 0.5);">Candied Nuts</h2>
-    
-    <!-- Description for the Nuts Section -->
-    <p style="text-align: center; font-size: 1.2rem; padding: 20px; color: #F5F5F5;">
-        Treat yourself to our irresistible candied nuts, crafted with a blend of sweetness and spice.
-    </p>
-    
-    <p>Indulge in our handcrafted candied nuts, made with the finest ingredients and a touch of magic 264G/9.3 oz  per order (contains egg ).</p>
-    
-    <!-- First Image at the Top -->
-    <div class="candied-nuts-image-top" style="margin: 20px 0;">
-        <img src="candied nuts 1.jpg" alt="Candied Nuts 1" style="width: 80%; border: 3px solid #FFD700; border-radius: 10px;">
-    </div>
-    
-    <div class="candied-nuts-details">
-        <div class="nut-item" style="margin: 20px 0;">
-            <h4 style="font-family: 'IM Fell English SC', serif; color: #FFD700;">Spiced Pecans</h4>
-            <p>Candied pecans.</p>
-            <span>$11.00</span>
-        </div>
-        <div class="nut-item" style="margin: 20px 0;">
-            <h4 style="font-family: 'IM Fell English SC', serif; color: #FFD700;">Spiced cashews</h4>
-            <p>Candied cashews</p>
-            <span>$11.00</span>
-        </div>
-    </div>
-
-    <!-- Second Image at the Bottom -->
-    <div class="candied-nuts-image-bottom" style="margin: 20px 0;">
-        <img src="candied nuts 2.jpg" alt="Candied Nuts 2" style="width: 80%; border: 3px solid #FFD700; border-radius: 10px;">
-    </div>
-</section>
-
-
-<!-- FAQ Section -->
-<section id="faq" class="faq-section" style="padding: 50px 20px; background-color: #2F4F4F; color: #F5F5F5; text-align: center;">
-    <h2 style="font-family: 'UnifrakturMaguntia', cursive; color: #FFD700; padding: 10px; background-color: rgba(0, 0, 0, 0.5);">
-        Frequently Asked Questions
-    </h2>
-    
-    <!-- FAQ Content -->
-    <div class="faq-content" style="text-align: left; max-width: 800px; margin: 0 auto; color: #F5F5F5;">
-        <h3>1. What types of teas do you offer?</h3>
-        <p>We offer a wide range of handcrafted teas, including floral, herbal, and specialty blends.</p>
-        
-        <h3>2. How do I place an order?</h3>
-        <p>You can place an order through our online forms or by contacting us directly.</p>
-
-        <!-- Add more questions as needed -->
-    </div>
-
-    <!-- Link to Download FAQ File -->
-    <p style="margin-top: 20px;">
-        For a complete list of FAQs, <a href="FAQs Tasty - Google Docs.pdf" target="_blank" style="color: #FFD700; text-decoration: underline;">
-            click here to view the full document
-        </a>.
-    </p>
-</section>
-
-
-
-
-
-
-    <div class="bubbling-cauldron-container">
-    <div class="bubbling-cauldron">
-        <div class="bubble-container">
-            <div class="bubble"></div>
-            <div class="bubble"></div>
-            <div class="bubble"></div>
-        </div>
-    </div>
-</div>
-
-
-    <!-- Order Form Section -->
-   <section id="order-form" class="order-form-section">
-    <h2>Place Your Order</h2>
-    <form action="https://formspree.io/f/mdknrglq" method="POST">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="tea">Select Tea:</label>
-        <select id="tea" name="tea" required>
-            <option value="Berry Rose">Berry Rose</option>
-            <option value="Flower Power">Flower Power</option>
-            <option value="Relax">Relax</option>
-            <option value="Meditation">Meditation</option>
-            <option value="Serenity">Serenity</option>
-            <option value="Calm Storm">Calm Storm</option>
-            <option value="The Elixir">The Elixir</option>
-            <option value="The Ritual">The Ritual</option>
-            <option value="Build your own">Build your own</option>
-        </select>
-
-        <label for="quantity">Quantity:</label>
-        <input type="number" id="quantity" name="quantity" min="1" required>
-
-        <label for="notes">Additional Notes( Please use this form only if ordering more than one tea/nut variety. Please specify in notes below the teas/nuts ordering. After completion of this form please proceed to paypal button below for secure payment, and update quantity accordingly for accurate billing and no delays in processing!):</label>
-        <textarea id="notes" name="notes"></textarea>
-
-        <button type="submit">Submit Order</button>
-    </form>
-</section>
-
-
-<script src="https://www.paypal.com/sdk/js?client-id=BAAL6Pq_Lvfk7W5Aw3FXot_yPW3eSIIy4pejTBe20m_PS71RHre7i8Bdl8jO51Dr2paZk5s0GVgg8B4YZI&components=hosted-buttons&enable-funding=venmo&currency=USD"></script>
-<div id="paypal-container-Y8UL64GRGQGPY"></div>
-<script>
-  paypal.HostedButtons({
-    hostedButtonId: "Y8UL64GRGQGPY",
-  }).render("#paypal-container-Y8UL64GRGQGPY")
-</script>
-
-
-   <!-- Contact Section -->
-<section id="contact" class="contact-section" style="padding: 50px 20px; background-color: #2F4F4F; text-align: center; color: #F5F5F5;">
-    <h2 style="font-family: 'UnifrakturMaguntia', cursive; color: #FFD700; padding: 10px; display: inline-block; background-color: rgba(0, 0, 0, 0.5);">
-        Contact Us
-    </h2>
-    
-    <!-- Mailing Address -->
-    <div class="contact-info" style="margin-bottom: 20px;">
-        <h4 style="font-family: 'IM Fell English SC', serif; color: #FFD700;">Mailing Address</h4>
-        <p>PO Box 155<br>Wurtsboro, New York, 12790</p>
-    </div>
-
-    <!-- Email Address -->
-    <div class="contact-info" style="margin-bottom: 20px;">
-        <h4 style="font-family: 'IM Fell English SC', serif; color: #FFD700;">Email</h4>
-        <p><a href="mailto:Sigourney@tastycauldron.com" style="color: #FFD700; text-decoration: none;">Sigourney@tastycauldron.com</a></p>
-    </div>
-
-    <!-- Phone Number -->
-    <div class="contact-info">
-        <h4 style="font-family: 'IM Fell English SC', serif; color: #FFD700;">Phone</h4>
-        <p><a href="tel:+18454446140" style="color: #FFD700; text-decoration: none;">(845) 444-6140</a></p>
-    </div>
-</section>
-
-    <div class="bubbling-cauldron-container">
-    <div class="bubbling-cauldron">
-        <div class="bubble-container">
-            <div class="bubble"></div>
-            <div class="bubble"></div>
-            <div class="bubble"></div>
-        </div>
-    </div>
-</div>
-
-    
-    <!-- Footer Section -->
-    <footer class="footer
